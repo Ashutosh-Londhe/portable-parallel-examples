@@ -4,7 +4,8 @@ NVCCFLAGS = -O3 -std=c++11 -Xcompiler="-fPIC"
 
 GPU_NAME   := $(shell nvidia-smi --query-gpu=name --format=csv,noheader | head -n 1)
 ARCH       := $(shell \
-    if echo "$(GPU_NAME)" | grep -q "A100"; then echo "80"; \
+    if echo "$(GPU_NAME)" | grep -q "H100"; then echo "90"; \
+	elif echo "$(GPU_NAME)" | grep -q "A100"; then echo "80"; \
     elif echo "$(GPU_NAME)" | grep -q "V100"; then echo "70"; \
     elif echo "$(GPU_NAME)" | grep -q "P100"; then echo "60"; \
     fi)
