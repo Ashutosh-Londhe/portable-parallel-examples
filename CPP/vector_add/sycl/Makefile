@@ -32,12 +32,12 @@ ifeq ($(GPU_VENDOR), INTEL)
 SYCL_FLAGS := -fsycl -fsycl-targets=spir64
 endif
 
-BIN =  laplace2d
+BIN =  vector_add
 
 all: $(BIN)
 
-laplace2d: laplace2d_sycl.cpp Makefile
-	$(CC) $(CCFLAGS) $(SYCL_FLAGS) -o $@ laplace2d_sycl.cpp
+laplace2d: vector_add.cpp Makefile
+	$(CC) $(CCFLAGS) $(SYCL_FLAGS) -o $@ vector_add.cpp
 
 clean:
 	$(RM) $(BIN)
