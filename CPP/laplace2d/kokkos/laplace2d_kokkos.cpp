@@ -115,7 +115,6 @@ int main(int argc, char** argv)
     else
       printf("This test is considered FAILED\n");
 
-
     //A = Kokkos::View<double*>();   // frees A immediately
     
   }
