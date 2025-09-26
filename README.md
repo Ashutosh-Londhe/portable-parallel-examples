@@ -6,10 +6,10 @@ The goal is to showcase portable approaches for running computations efficiently
 
 ## 🌟 Features
 
-✅ Multiple GPU Backends: Implementations using CUDA (NVIDIA), HIP (AMD), and SYCL (cross-platform).
-✅ Portable Examples: Code designed to illustrate best practices for porting algorithms across architectures.
-✅ Simple Build and Run: Each subdirectory contains its own build setup (Makefile or CMake) for quick experimentation.
-✅ Demonstrates Performance Patterns: Covers common parallel programming patterns, memory allocation, and kernel offloading techniques.
+✅ Multiple GPU Backends: Implementations using CUDA (NVIDIA), HIP (AMD), and SYCL (cross-platform).  
+✅ Portable Examples: Code designed to illustrate best practices for porting algorithms across architectures.  
+✅ Simple Build and Run: Each subdirectory contains its own build setup (Makefile or CMake) for quick experimentation.  
+✅ Demonstrates Performance Patterns: Covers common parallel programming patterns, memory allocation, and kernel offloading techniques.  
 
 
 ## ⚡ Getting Started
@@ -17,9 +17,9 @@ The goal is to showcase portable approaches for running computations efficiently
    -  CUDA: NVIDIA GPU support.
    -  HIP: AMD GPU support.
    - SYCL: Cross-platform accelerator support (e.g., Intel oneAPI, Codeplay ComputeCpp).
-2. Build the Examples:
+2. Build the Examples:  
    Navigate to the desired backend directory (cuda, hip, or sycl) and follow the instructions in the included Makefile or CMakeLists.txt.
-3. Run the Binaries:
+3. Run the Binaries:  
    Execute the compiled binaries on the target GPU. Make sure environment variables like CUDA_HOME or HIP_PATH are set correctly.
 
 
