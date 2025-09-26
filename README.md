@@ -4,7 +4,7 @@ This repository demonstrates architecture-specific parallel computing examples u
 The goal is to showcase portable approaches for running computations efficiently on different GPU architectures.
 
 
-🌟 Features
+## 🌟 Features
 
 ✅ Multiple GPU Backends: Implementations using CUDA (NVIDIA), HIP (AMD), and SYCL (cross-platform).
 ✅ Portable Examples: Code designed to illustrate best practices for porting algorithms across architectures.
@@ -12,7 +12,7 @@ The goal is to showcase portable approaches for running computations efficiently
 ✅ Demonstrates Performance Patterns: Covers common parallel programming patterns, memory allocation, and kernel offloading techniques.
 
 
-⚡ Getting Started
+## ⚡ Getting Started
 1. Install Required Toolkits:
    -  CUDA: NVIDIA GPU support.
    -  HIP: AMD GPU support.
@@ -23,18 +23,18 @@ The goal is to showcase portable approaches for running computations efficiently
    Execute the compiled binaries on the target GPU. Make sure environment variables like CUDA_HOME or HIP_PATH are set correctly.
 
 
-💡 Notes
+## 💡 Notes
  - Subdirectories marked with _c show Fortran-to-C bindings, allowing Fortran programs to interface with CUDA, HIP, and SYCL implementations.
  - Examples are educational: they illustrate patterns for parallel programming and portability, not full production-ready applications.
 
 
-📌 Recommended Workflow
+## 📌 Recommended Workflow
  - Choose the target GPU backend (cuda, hip, or sycl).
  - Study the example code to understand memory allocation, kernel launches, and parallel patterns.
  - Modify or extend the examples to experiment with your own algorithms or Fortran–C bindings.
 
 
-✨ Quick Tips
+## ✨ Quick Tips
  - Always check that your GPU architecture flags match your hardware (-arch=sm_XX for CUDA, etc.).
  - For Fortran-to-C experiments, _c subdirectories provide a good starting point for porting legacy Fortran code.
  - Use nvcc, hipcc, or your SYCL compiler for linking — Makefiles already handle CUDA/HIP/SYCL libraries via variables like CUDA_LIB.
