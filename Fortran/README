@@ -1,4 +1,4 @@
-🚀 Fortran–C Interoperability for GPU Offloading
+# 🚀 Fortran–C Interoperability for GPU Offloading
 
 The subdirectories marked with _c demonstrate how Fortran-to-C bindings can be used to offload computations from Fortran applications to GPUs. These examples show how Fortran codes can interoperate with:
 
