@@ -1,0 +1,12 @@
+# 🚀 Fortran–C Interoperability for GPU Offloading
+
+The subdirectories marked with _c demonstrate how Fortran-to-C bindings can be used to offload computations from Fortran applications to GPUs. 
+These examples show how Fortran codes can interoperate with:
+- CUDA-C for NVIDIA GPUs
+- HIP-C for AMD GPUs
+- SYCL-C for cross-platform accelerator support  
+
+While CUDA Fortran is directly supported, using CUDA-C often delivers better performance. Similarly, HIP-C and SYCL bindings provide a path to target AMD GPUs 
+and other heterogeneous platforms where direct Fortran support may be missing.  
+
+This approach makes it possible to extend existing Fortran programs to run efficiently on a wide range of GPU architectures, without being locked into a single vendor’s toolchain.
