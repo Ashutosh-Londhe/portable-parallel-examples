@@ -1,4 +1,4 @@
-🚀 Portable Parallel Examples
+# 🚀 Portable Parallel Examples
 
 This repository demonstrates architecture-specific parallel computing examples using CUDA, HIP, and SYCL.
 The goal is to showcase portable approaches for running computations efficiently on different GPU architectures.
@@ -35,6 +35,6 @@ The goal is to showcase portable approaches for running computations efficiently
 
 
 ✨ Quick Tips
- o Always check that your GPU architecture flags match your hardware (-arch=sm_XX for CUDA, etc.).
- o For Fortran-to-C experiments, _c subdirectories provide a good starting point for porting legacy Fortran code.
- o Use nvcc, hipcc, or your SYCL compiler for linking — Makefiles already handle CUDA/HIP/SYCL libraries via variables like CUDA_LIB.
+ - Always check that your GPU architecture flags match your hardware (-arch=sm_XX for CUDA, etc.).
+ - For Fortran-to-C experiments, _c subdirectories provide a good starting point for porting legacy Fortran code.
+ - Use nvcc, hipcc, or your SYCL compiler for linking — Makefiles already handle CUDA/HIP/SYCL libraries via variables like CUDA_LIB.
