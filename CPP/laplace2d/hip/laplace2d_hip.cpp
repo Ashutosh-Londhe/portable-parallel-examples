@@ -15,7 +15,7 @@
 
 inline void checkDeviceError(hipError_t result, char *msg) {
     if(result != hipSuccess) {
-        fprintf(stdout, "CUDA Error: %s : %s\n",msg,hipGetErrorString(result));
+        fprintf(stdout, "HIP Error: %s : %s\n",msg,hipGetErrorString(result));
         assert(result == hipSuccess);
     }
 }
