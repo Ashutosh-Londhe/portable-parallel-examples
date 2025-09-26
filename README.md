@@ -14,9 +14,9 @@ The goal is to showcase portable approaches for running computations efficiently
 
 ⚡ Getting Started
 1. Install Required Toolkits:
-   o  CUDA: NVIDIA GPU support.
-   o  HIP: AMD GPU support.
-   o SYCL: Cross-platform accelerator support (e.g., Intel oneAPI, Codeplay ComputeCpp).
+   -  CUDA: NVIDIA GPU support.
+   -  HIP: AMD GPU support.
+   - SYCL: Cross-platform accelerator support (e.g., Intel oneAPI, Codeplay ComputeCpp).
 2. Build the Examples:
    Navigate to the desired backend directory (cuda, hip, or sycl) and follow the instructions in the included Makefile or CMakeLists.txt.
 3. Run the Binaries:
@@ -24,14 +24,14 @@ The goal is to showcase portable approaches for running computations efficiently
 
 
 💡 Notes
- o Subdirectories marked with _c show Fortran-to-C bindings, allowing Fortran programs to interface with CUDA, HIP, and SYCL implementations.
- o Examples are educational: they illustrate patterns for parallel programming and portability, not full production-ready applications.
+ - Subdirectories marked with _c show Fortran-to-C bindings, allowing Fortran programs to interface with CUDA, HIP, and SYCL implementations.
+ - Examples are educational: they illustrate patterns for parallel programming and portability, not full production-ready applications.
 
 
 📌 Recommended Workflow
- o Choose the target GPU backend (cuda, hip, or sycl).
- o Study the example code to understand memory allocation, kernel launches, and parallel patterns.
- o Modify or extend the examples to experiment with your own algorithms or Fortran–C bindings.
+ - Choose the target GPU backend (cuda, hip, or sycl).
+ - Study the example code to understand memory allocation, kernel launches, and parallel patterns.
+ - Modify or extend the examples to experiment with your own algorithms or Fortran–C bindings.
 
 
 ✨ Quick Tips
