@@ -34,8 +34,10 @@ int main(int argc, const char** argv)
 
   size_t N = (imax+2)*(jmax+2);
 
-#pragma omp target data map(tofrom:A[0:N]) map(tofrom:Anew[0:N])
-{
+// Moving data to device memory
+  #pragma omp target enter data map(to: A[0:N])
+  #pragma omp target enter data map(to: Anew[0:N])
+
   // set boundary conditions
   #pragma omp target teams distribute parallel for
   for (int i = 0; i < imax+2; i++)
@@ -96,7 +98,7 @@ int main(int argc, const char** argv)
     if(iter % 10 == 0) printf("%5d, %0.6f\n", iter, error);        
     iter++;
   }
-}// End of omp target data region
+
   printf("%5d, %0.6f\n", iter, error);
 
   double err_diff = fabs((100.0*(error/2.421354960840227e-03))-100.0);
@@ -106,6 +108,8 @@ int main(int argc, const char** argv)
   else
     printf("This test is considered FAILED\n");
 
+  #pragma omp target exit data map(from: A)
+  #pragma omp target exit data map(from: Anew)
 
   free(A);
   free(Anew);
