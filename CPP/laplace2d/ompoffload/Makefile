@@ -1,4 +1,4 @@
-# CTAY compiler
+# CRAY compiler
 
 CC       = CC
 CCFLAGS  = -O3 -std=c++17 -g -fPIC -fopenmp
