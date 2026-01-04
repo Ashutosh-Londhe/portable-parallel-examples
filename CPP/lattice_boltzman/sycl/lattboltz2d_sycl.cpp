@@ -423,7 +423,7 @@ int main(int argc, char ** argv) {
 
         //Calculate kinetic energy
         energy = 0.0;
-
+/*
         queue.memcpy(h_ux, d_ux, NX*NY*sizeof(double));
         queue.memcpy(h_uy, d_uy, NX*NY*sizeof(double));
         queue.wait();
@@ -433,8 +433,15 @@ int main(int argc, char ** argv) {
                 energy += h_ux[j*NX+i]*h_ux[j*NX+i]+h_uy[j*NX+i]*h_uy[j*NX+i]; // reduction
             }
         }
+*/
+        for(int b = 0; b < maxblocks; b++)
+            h_reduction_ptr[b] = 0.0;
 
-/*      cal_energy(queue, d_ux, d_uy, d_reduction_ptr, NX, NY, tblock_x, tblock_y, ngrid_x, ngrid_y);
+        //  for memcpy to work host memory should be allocated using sycl::malloc_host and device memory using sycl::malloc_device
+        queue.memcpy(d_reduction_ptr, h_reduction_ptr, (maxblocks)*sizeof(double));
+        queue.wait();
+
+        cal_energy(queue, d_ux, d_uy, d_reduction_ptr, NX, NY, tblock_x, tblock_y, ngrid_x, ngrid_y);
 
         queue.memcpy(h_reduction_ptr, d_reduction_ptr, (maxblocks)*sizeof(double));
         queue.wait();
@@ -442,7 +449,7 @@ int main(int argc, char ** argv) {
         for(int b = 0; b < maxblocks; b++)
             energy += h_reduction_ptr[b];
         queue.wait();
-*/
+
         if (t%100==0) 
             printf(" %d  %10.5e \n", t, energy);            
         if (t==3999 && NX == 128 && NY == 128) {
