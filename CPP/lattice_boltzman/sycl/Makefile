@@ -26,7 +26,7 @@ endif
 ifeq ($(GPU_VENDOR), AMD)
 HIP_ARCH=$(shell rocminfo | grep gfx | sed -e 's/Name://' | head -1 | sed 's/ //g')
 SYCL_FLAGS := -fsycl -fsycl-targets=amdgcn-amd-amdhsa -Xsycl-target-backend --offload-arch=$(HIP_ARCH)
-#CPU
+# CPU
 #SYCL_FLAGS := -fsycl -fsycl-targets=spir64_x86_64
 endif
 
@@ -34,12 +34,12 @@ ifeq ($(GPU_VENDOR), INTEL)
 SYCL_FLAGS := -fsycl -fsycl-targets=spir64
 endif
 
-BIN =  laplace2d
+BIN =  lattboltz2d
 
 all: $(BIN)
 
-laplace2d: laplace2d_sycl.cpp Makefile
-	$(CC) $(CCFLAGS) $(SYCL_FLAGS) -o $@ laplace2d_sycl.cpp
+lattboltz2d: lattboltz2d_sycl.cpp Makefile
+	$(CC) $(CCFLAGS) $(SYCL_FLAGS) -o $@ lattboltz2d_sycl.cpp
 
 clean:
 	$(RM) $(BIN)

@@ -84,6 +84,7 @@ void copy(sycl::queue& queue, double *d_A, double *d_Anew, int imax, int jmax, i
 int main(int argc, const char** argv)
 {
 
+  //sycl::queue queue(sycl::cpu_selector_v, sycl::property::queue::in_order());
   sycl::queue queue(sycl::gpu_selector_v, sycl::property::queue::in_order());
 
   //Size along y
@@ -146,6 +147,7 @@ int main(int argc, const char** argv)
     for(int b = 0; b < maxblocks; b++)
       h_reduction_ptr[b] = -INFINITY_double;
 
+//  for memcpy to work host memory should be allocated using sycl::malloc_host and device memory using sycl::malloc_device
     queue.memcpy(d_reduction_ptr, h_reduction_ptr, (maxblocks)*sizeof(double));
     queue.wait();
 
@@ -173,6 +175,9 @@ int main(int argc, const char** argv)
     printf("This run is considered PASSED\n");
   else
     printf("This test is considered FAILED\n");
+
+  sycl::free(d_reduction_ptr,queue);
+  sycl::free(h_reduction_ptr,queue);
 
   sycl::free(d_A,queue);
   sycl::free(d_Anew,queue);
