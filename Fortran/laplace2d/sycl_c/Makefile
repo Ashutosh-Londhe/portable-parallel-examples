@@ -37,11 +37,10 @@ ifeq ($(GPU_VENDOR), INTEL)
 SYCL_FLAGS := -fsycl -fsycl-targets=spir64
 endif
 
-#SYCL_SRC = sycl_kernels.cpp 
-#ifneq ($(GPU_VENDOR), INTEL)
-#SYCL_SRC += main.cpp
-#endif
-SYCL_SRC = $(wildcard *.cpp)
+SYCL_SRC = sycl_kernels.cpp 
+ifneq ($(GPU_VENDOR), INTEL)
+SYCL_SRC += main.cpp
+endif
 SYCL_OBJ = $(SYCL_SRC:.cpp=.o)
 
 ifeq ($(GPU_VENDOR), INTEL)
