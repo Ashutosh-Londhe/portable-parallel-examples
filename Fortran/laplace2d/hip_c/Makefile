@@ -17,11 +17,15 @@ HIP_OBJ = $(HIP_SRC:.cpp=.o)
 F90_SRC = laplace2d.F90
 F90_OBJ =  $(F90_SRC:.F90=.o)
 
-TARGET = laplace2d
+TARGET1 = laplace2d
+TARGET2 = laplace2d_partial
 
-all: $(TARGET)
+all: $(TARGET1) $(TARGET2)
 
-$(TARGET): $(HIP_OBJ) $(F90_OBJ)
+$(TARGET1): $(HIP_OBJ) $(F90_OBJ)
+	$(FC) $(HIP_OBJ) $(F90_OBJ) -L$(ROCM_PATH)/lib -lamdhip64 -lrocm_smi64 -lstdc++ -o $@
+
+$(TARGET2): $(HIP_OBJ) $(F90_OBJ)
 	$(FC) $(HIP_OBJ) $(F90_OBJ) -L$(ROCM_PATH)/lib -lamdhip64 -lrocm_smi64 -lstdc++ -o $@
 
 %.o: %.cpp
@@ -31,5 +35,5 @@ $(TARGET): $(HIP_OBJ) $(F90_OBJ)
 	$(FC) $(FFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(HIP_OBJ) $(F90_OBJ) $(TARGET)
+	rm -f $(HIP_OBJ) $(F90_OBJ) $(TARGET1) $(TARGET2)
 
